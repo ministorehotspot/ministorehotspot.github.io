@@ -1,0 +1,173 @@
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<meta name="description" content="QR Code scanner">
+<meta name="keywords" content="qrcode,qr code,scanner,barcode,javascript">
+<meta name="Revisit-After" content="1 Days">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="exoclick-site-verification" content="1484892cb17f0f6315b6f2d998251d8d">
+	<title>QR Code Web</title>
+	<style type="text/css">body{
+    width:100%;
+    text-align:center;
+}
+img{
+    border:0;
+}
+#main{
+    margin: 15px auto;
+    background:white;
+    overflow: auto;
+	width: 100%;
+}
+#header{
+    background:white;
+    margin-bottom:15px;
+}
+#mainbody{
+    background: white;
+    width:100%;
+	display:none;
+}
+#footer{
+    background:white;
+}
+#v{
+    width:320px;
+    height:240px;
+}
+#qr-canvas{
+    display:none;
+}
+#qrfile{
+    width:320px;
+    height:240px;
+}
+#mp1{
+    text-align:center;
+    font-size:35px;
+}
+#imghelp{
+    position:relative;
+    left:0px;
+    top:-160px;
+    z-index:100;
+    font:18px arial,sans-serif;
+    background:#f0f0f0;
+	margin-left:35px;
+	margin-right:35px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-radius:20px;
+}
+.selector{
+    margin:0;
+    padding:0;
+    cursor:pointer;
+    margin-bottom:-5px;
+}
+#outdiv
+{
+    width:320px;
+    height:240px;
+	border: solid;
+	border-width: 3px 3px 3px 3px;
+}
+#result{
+    border: solid;
+	border-width: 1px 1px 1px 1px;
+	padding:20px;
+	width:70%;
+}
+
+ul{
+    margin-bottom:0;
+    margin-right:40px;
+}
+li{
+    display:inline;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    font-weight: bold;
+    border-right: 1px solid #333333;
+}
+li a{
+    text-decoration: none;
+    color: black;
+}
+
+#footer a{
+	color: black;
+}
+.tsel{
+    padding:0;
+}
+	</style>
+	<script type="text/javascript" async src="./files/ga.js.download"></script><script src="./files/cb=gapi.loaded_0" async></script><script src="./files/osd.js.download"></script><script src="./files/cb=gapi.loaded_1" async></script><script type="text/javascript" async src="./files/ga.js(1).download"></script><script src="./files/cb=gapi(1).loaded_0" async></script><script type="text/javascript" src="./files/llqrcode.js.download"></script><script type="text/javascript" src="./files/plusone.js.download" gapi_processed="true"></script><script type="text/javascript" src="./files/webqr.js.download"></script>
+	<link as="script" href="./files/f(4).txt" rel="preload" /><script type="text/javascript" src="./files/f(4).txt"></script>
+	<link as="script" href="./files/f(5).txt" rel="preload" /><script type="text/javascript" src="./files/f(5).txt"></script><script type="text/javascript">
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	<link as="script" href="./files/f.txt" rel="preload" /><script type="text/javascript" src="./files/f.txt"></script>
+	<link as="script" href="./files/f(1).txt" rel="preload" /><script type="text/javascript" src="./files/f(1).txt"></script>
+<script data-ad-client="ca-pub-2660320698880352" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+<div id="main">
+<div id="header">
+<p id="mp1">QR Code Web Scanner</p>
+<ul>
+<li><a href="index.html">Scan</a></li>
+<li><a href="about.html">About</a></li>
+<li style="border: medium none;"><a href="contact.html">Contact</a></li>
+</ul>
+<div id="mainbody" style="display: inline;">
+<table border="0" class="tsel" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" height="355" valign="top" width="50%">
+			<div class="btn-group btn-group-justified" style="margin-top:15px;"></div>
+			<table border="0" class="tsel" height="300" width="332">
+				<tbody>
+					<tr>
+						<td width="161"><img align="left" class="selector" id="webcamimg2" onclick="location.reload()" src="./files/vid.png" style="opacity: 1;" /></td>
+						<td width="161"><img align="right" class="selector" id="qrimg" onclick="setimg()" src="./files/cam.png" style="opacity: 0.2;" /></td>
+					</tr>
+					<tr>
+						<td align="center" colspan="3">
+						<div id="outdiv">
+						<video autoplay="" id="v"></video>
+						</div>
+						</td>
+					</tr>
+                    <tr>
+			<td align="center" colspan="3"><img class="selector" id="webcamimg" onclick="location.reload();" src="./files/down.png" /></td>
+		</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="3">
+			<div id="result">- Result scanning will be here -</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div id="footer">
+<h5 align="center"><a href="https://qrcodeweb.pw/" target="_blank">QR Code Web Scanner-qrcodeweb.pw</h5>
+<h5 align="center">Powered by <a href="https://webqr.com/" target="_blank">webqr.com</a></h5>
+</div>
+</div>
+<canvas height="600" id="qr-canvas" style="width: 800px; height: 600px;" width="800"></canvas> <script type="text/javascript">load();</script></div>
+</div>
+</body>
+</html>
